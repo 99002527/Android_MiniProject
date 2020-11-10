@@ -1,335 +1,120 @@
-package com.example.scientificcalculator;
+package com.lnt.calculator;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
-
 public class MainActivity extends AppCompatActivity {
+EditText e1, e2;
 
-    TextView input, signBox;
+TextView t1;
 
-    String sign, value1, value2;
-    Double num1, num2, result;
-    boolean hasDot;
+int num1,num2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        super.onCreate(savedInstanceState);*-
         setContentView(R.layout.activity_main);
-
-        input = (TextView) findViewById(R.id.input);
-        signBox = (TextView) findViewById(R.id.sign);
-
-        hasDot = false;
-
     }
 
-    @SuppressLint("SetTextI18n")
-    public void btnClick_0(View view) {
-        input.setText(input.getText() + "0");
-    }
+    public boolean getNumbers(){
 
-    @SuppressLint("SetTextI18n")
-    public void btnClick_1(View view) {
-        input.setText(input.getText() + "1");
-    }
+        e1=(EditText)findViewById(R.id.num1);
 
-    @SuppressLint("SetTextI18n")
-    public void btnClick_2(View view) {
-        input.setText(input.getText() + "2");
-    }
+        e2=(EditText)findViewById(R.id.num2);
 
-    @SuppressLint("SetTextI18n")
-    public void btnClick_3(View view) {
-        input.setText(input.getText() + "3");
-    }
+        t1=(TextView)findViewById(R.id.result);
 
-    @SuppressLint("SetTextI18n")
-    public void btnClick_4(View view) {
-        input.setText(input.getText() + "4");
-    }
+        String s1=e1.getText().toString();
 
-    @SuppressLint("SetTextI18n")
-    public void btnClick_5(View view) {
-        input.setText(input.getText() + "5");
-    }
+        String s2=e2.getText().toString();
 
-    @SuppressLint("SetTextI18n")
-    public void btnClick_6(View view) {
-        input.setText(input.getText() + "6");
-    }
+        if((s1.equals(null) && s2.equals(null)) || (s1.equals("") && s2.equals(""))){
 
-    @SuppressLint("SetTextI18n")
-    public void btnClick_7(View view) {
-        input.setText(input.getText() + "7");
-    }
+            String result="Pls enter a value";
 
-    @SuppressLint("SetTextI18n")
-    public void btnClick_8(View view) {
-        input.setText(input.getText() + "8");
-    }
+            t1.setText(result);
 
-    @SuppressLint("SetTextI18n")
-    public void btnClick_9(View view) {
-        input.setText(input.getText() + "9");
-    }
-
-    @SuppressLint("SetTextI18n")
-    public void btnClick_dot(View view) {
-        if (!hasDot) {
-            if (input.getText().equals("")) {
-
-                input.setText("0.");
-            } else {
-
-                input.setText(input.getText() + ".");
-            }
-
-            hasDot = true;
+            return false;
         }
 
+
+
+        else
+        {
+
+            num1=Integer.parseInt(e1.getText().toString());
+
+            num2=Integer.parseInt(e2.getText().toString());
+        }
+
+        return true;
     }
 
-    public void btnClick_add(View view) {
-        sign = "+";
-        value1 = input.getText().toString();
-        input.setText(null);
-        signBox.setText("+");
-        hasDot = false;
+    public void doSum(View v){
+
+        if(getNumbers())
+        {
+
+            int sum=num1+num2;
+
+            t1.setText(Integer.toString(sum));
+        }
     }
 
-    public void btnClick_subtract(View view) {
-        sign = "-";
-        value1 = input.getText().toString();
-        input.setText(null);
-        signBox.setText("-");
-        hasDot = false;
-    }
+    public void doSub(View v){
 
-    public void btnClick_multiply(View view) {
-        sign = "*";
-        value1 = input.getText().toString();
-        input.setText(null);
-        signBox.setText("×");
-        hasDot = false;
-    }
+        if(getNumbers())
+        {
 
-    public void btnClick_divide(View view) {
-        sign = "/";
-        value1 = input.getText().toString();
-        input.setText(null);
-        signBox.setText("÷");
-        hasDot = false;
-    }
+            int sub=num1-num2;
 
-    @SuppressLint("SetTextI18n")
-    public void btnClick_log(View view) {
-        sign = "log";
-        input.setText(null);
-        signBox.setText("log");
-        hasDot = false;
-    }
-
-    @SuppressLint("SetTextI18n")
-    public void btnClick_ln(View view) {
-        sign = "ln";
-        input.setText(null);
-        signBox.setText("ln");
-        hasDot = false;
-    }
-
-    public void btnClick_power(View view) {
-        sign = "power";
-        value1 = input.getText().toString();
-        input.setText(null);
-        hasDot = false;
-        signBox.setText("xⁿ");
-    }
-
-    public void btnClick_factorial(View view) {
-        sign = "factorial";
-        input.setText(null);
-        hasDot = false;
-        signBox.setText("!");
-    }
-
-    @SuppressLint("SetTextI18n")
-    public void btnClick_sin(View view) {
-        sign = "sin";
-        input.setText(null);
-        hasDot = false;
-        signBox.setText("sin");
-    }
-
-    @SuppressLint("SetTextI18n")
-    public void btnClick_cos(View view) {
-        sign = "cos";
-        input.setText(null);
-        hasDot = false;
-        signBox.setText("cos");
-    }
-
-    @SuppressLint("SetTextI18n")
-    public void btnClick_tan(View view) {
-        sign = "tan";
-        input.setText(null);
-        hasDot = false;
-        signBox.setText("tan");
-    }
-
-    public void btnClick_root(View view) {
-        sign = "root";
-        input.setText(null);
-        hasDot = false;
-        signBox.setText("√");
-    }
-
-    @SuppressLint("SetTextI18n")
-    public void btnClick_equal(View view) {
-        if (sign == null) {
-            signBox.setText("Error!");
-        } else if (input.getText().equals("")) {
-            signBox.setText("Error!");
-        } else if ((sign.equals("+") || sign.equals("-") || sign.equals("*") || sign.equals("/")) && value1.equals("")) {
-            signBox.setText("Error!");
-        } else {
-            switch (sign) {
-                default:
-                    break;
-                case "log":
-                    value1 = input.getText().toString();
-                    num1 = Double.parseDouble(value1);
-                    input.setText(Math.log10(num1) + "");
-                    sign = null;
-                    signBox.setText(null);
-                    break;
-                case "ln":
-                    value1 = input.getText().toString();
-                    num1 = Double.parseDouble(value1);
-                    input.setText(Math.log(num1) + "");
-                    sign = null;
-                    signBox.setText(null);
-                    break;
-                case "power":
-                    num1 = Double.parseDouble((value1));
-                    value2 = input.getText().toString();
-                    num2 = Double.parseDouble(value2);
-                    input.setText(Math.pow(num1, num2) + "");
-                    sign = null;
-                    signBox.setText(null);
-                    break;
-                case "root":
-                    value1 = input.getText().toString();
-                    num1 = Double.parseDouble((value1));
-                    input.setText(Math.sqrt(num1) + "");
-                    sign = null;
-                    signBox.setText(null);
-                    break;
-                case "factorial":
-                    value1 = input.getText().toString();
-                    num1 = Double.parseDouble((value1));
-                    int i = Integer.parseInt(value1) - 1;
-
-                    while (i > 0) {
-                        num1 = num1 * i;
-                        i--;
-                    }
-
-                    input.setText(num1 + "");
-                    sign = null;
-                    signBox.setText(null);
-                    break;
-                case "sin":
-                    value1 = input.getText().toString();
-                    num1 = Double.parseDouble((value1));
-                    input.setText(Math.sin(num1) + "");
-                    sign = null;
-                    signBox.setText(null);
-                    break;
-                case "cos":
-                    value1 = input.getText().toString();
-                    num1 = Double.parseDouble((value1));
-                    input.setText(Math.cos(num1) + "");
-                    sign = null;
-                    signBox.setText(null);
-                    break;
-                case "tan":
-                    value1 = input.getText().toString();
-                    num1 = Double.parseDouble((value1));
-                    input.setText(Math.tan(num1) + "");
-                    sign = null;
-                    signBox.setText(null);
-                    break;
-                case "+":
-                    value2 = input.getText().toString();
-                    num1 = Double.parseDouble(value1);
-                    num2 = Double.parseDouble(value2);
-                    result = num1 + num2;
-                    input.setText(result + "");
-                    sign = null;
-                    signBox.setText(null);
-                    break;
-                case "-":
-                    value2 = input.getText().toString();
-                    num1 = Double.parseDouble(value1);
-                    num2 = Double.parseDouble(value2);
-                    result = num1 - num2;
-                    input.setText(result + "");
-                    sign = null;
-                    signBox.setText(null);
-                    break;
-                case "*":
-                    value2 = input.getText().toString();
-                    num1 = Double.parseDouble(value1);
-                    num2 = Double.parseDouble(value2);
-                    result = num1 * num2;
-                    input.setText(result + "");
-                    sign = null;
-                    signBox.setText(null);
-                    break;
-                case "/":
-                    value2 = input.getText().toString();
-                    num1 = Double.parseDouble(value1);
-                    num2 = Double.parseDouble(value2);
-                    result = num1 / num2;
-                    input.setText(result + "");
-                    sign = null;
-                    signBox.setText(null);
-                    break;
-            }
-
+            t1.setText(Integer.toString(sub));
         }
     }
 
 
-    public void btnClick_delete(View view) {
-        if (input.getText().equals("")) {
-            input.setText(null);
-        } else {
-            int len = input.getText().length();
-            String s = input.getText().toString();
-            if (s.charAt(len - 1) == '.') {
-                hasDot = false;
-                input.setText(input.getText().subSequence(0, input.getText().length() - 1));
+    public void doMul(View v){
 
-            } else {
-                input.setText(input.getText().subSequence(0, input.getText().length() - 1));
-            }
+        if(getNumbers())
+        {
+
+            int mul=num1*num2;
+
+            t1.setText(Integer.toString(mul));
         }
     }
 
-    public void btnClick_clear(View view) {
+    public void doDiv(View v){
 
-        input.setText(null);
-        signBox.setText(null);
-        value1 = null;
-        value2 = null;
-        sign = null;
-        hasDot = false;
+        if(getNumbers())
+        {
+
+            int div=num1/num2;
+
+            t1.setText(Integer.toString(div));
+        }
     }
 
+    public void doPow(View v){
+        if (getNumbers()) {
+            double sum = Math.pow(num1, num2);
+            t1.setText(Double.toString(sum));
+        }
+
+    }
+
+    public void doMod(View v){
+
+        if(getNumbers()){
+
+            int mod=num1%num2;
+
+            t1.setText(Integer.toString(mod));
+        }
+    }
 
 }
