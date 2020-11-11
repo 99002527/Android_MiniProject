@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.lnt.miniproject.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/action_nav_home_to_nav_slideshow"
+            app:destination="@id/nav_slideshow" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.lnt.miniproject.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_slideshow" >
+        <action
+            android:id="@+id/action_nav_slideshow_to_calculator"
+            app:destination="@id/calculator" />
+        <action
+            android:id="@+id/action_nav_slideshow_to_typeofUnit"
+            app:destination="@id/typeofUnit" />
+    </fragment>
+    <fragment
+        android:id="@+id/calculator"
+        android:name="com.lnt.miniproject.Calculator"
+        android:label="fragment_calculator"
+        tools:layout="@layout/fragment_calculator" />
+    <fragment
+        android:id="@+id/typeofUnit"
+        android:name="com.lnt.miniproject.TypeofUnit"
+        android:label="fragment_typeof_unit"
+        tools:layout="@layout/fragment_typeof_unit" >
+        <action
+            android:id="@+id/action_typeofUnit_to_unitConvertor1"
+            app:destination="@id/unitConvertor1" />
+        <action
+            android:id="@+id/action_typeofUnit_to_lenghtConvertor"
+            app:destination="@id/lenghtConvertor" />
+    </fragment>
+    <fragment
+        android:id="@+id/unitConvertor1"
+        android:name="com.lnt.miniproject.unitConvertor1"
+        android:label="fragment_unit_convertor1"
+        tools:layout="@layout/fragment_unit_convertor1" />
+    <fragment
+        android:id="@+id/lenghtConvertor"
+        android:name="com.lnt.miniproject.LenghtConvertor"
+        android:label="fragment_lenght_convertor"
+        tools:layout="@layout/fragment_lenght_convertor" />
+</navigation>
