@@ -24,7 +24,7 @@ import android.widget.TextView;
 public class Calculator extends Fragment {
     EditText e1, e2;
 
-    TextView t1;
+    
 
     int num1,num2;
     // TODO: Rename parameter arguments, choose names that match
