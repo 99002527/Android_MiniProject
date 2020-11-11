@@ -30,7 +30,7 @@
                             <archive>
                                 <manifest>
                                     <mainClass>
-                                        SystemRunner
+                                        MainActivity
                                     </mainClass>
                                 </manifest>
                             </archive>
