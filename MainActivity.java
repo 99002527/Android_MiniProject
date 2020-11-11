@@ -9,7 +9,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
 
-
+EditText e1, e2;
 TextView t1;
 
 int num1,num2;
