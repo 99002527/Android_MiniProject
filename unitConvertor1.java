@@ -20,7 +20,7 @@ import android.widget.Toast;
  * create an instance of this fragment.
  */
 public class unitConvertor1 extends Fragment {
-    TextView from1, to1, result1,v;
+   
     EditText measure11, measure21, val1;
     Button convert1, dollar, rupee, yen, canaddol, dir, euro, yuan,clear1;
     double value11, value21;
