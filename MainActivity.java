@@ -32,16 +32,7 @@ int num1,num2;
 
         String s2=e2.getText().toString();
 
-        if((s1.equals(null) && s2.equals(null)) || (s1.equals("") && s2.equals(""))){
-
-            String result="Pls enter a value";
-
-            t1.setText(result);
-
-            return false;
-        }
-
-
+     
 
         else
         {
