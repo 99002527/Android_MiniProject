@@ -1,1 +1,1 @@
-This file contains the unit convertor.
+This folder contains the unit convertor.
