@@ -3,7 +3,7 @@
 
 
 
-We have created a Utility Management app which can be used to easily access tools that is required on a day to day basis. The tool is protected with form validation to prevent random access into it. 
+We have created a Utility Management app which can be used to easily access tools that is required on a day to day basis. The tool is protected with form validation to prevent random access into it. Enjoy!!!
 
 
 
